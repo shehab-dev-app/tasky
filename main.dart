@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:taskyapp/Screens/main_screen.dart';
-import 'package:taskyapp/Screens/welcome_screen.dart';
+import 'package:taskyapp/features/navigation/main_screen.dart';
+import 'package:taskyapp/features/welcome/welcome_screen.dart';
 import 'package:taskyapp/core/services/preferences_manager.dart';
 import 'package:taskyapp/core/theme/dark_theme.dart';
 import 'package:taskyapp/core/theme/light_theme.dart';
