@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:taskyapp/features/tasks/high_priority_screen.dart';
+import 'package:taskyapp/Screens/high_priority_screen.dart';
 import 'package:taskyapp/core/widgets/custom_check_box.dart';
 import 'package:taskyapp/core/widgets/custom_svg_picture.dart';
 import 'package:taskyapp/models/task_model.dart';
