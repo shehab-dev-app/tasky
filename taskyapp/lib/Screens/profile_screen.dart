@@ -5,6 +5,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:taskyapp/Screens/user_details_screen.dart';
 import 'package:taskyapp/Screens/welcome_screen.dart';
+import 'package:taskyapp/core/constants/storage_key.dart';
 import 'package:taskyapp/core/services/preferences_manager.dart';
 import 'package:taskyapp/core/theme/theme_controller.dart';
 import 'package:taskyapp/core/widgets/custom_svg_picture.dart';
@@ -39,7 +40,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   void _loadUserName() async {
     setState(() {
-      userName = PreferencesManager().getString('username');
+      userName = PreferencesManager().getString(StorageKey.username);
     });
   }
 
@@ -167,7 +168,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ListTile(
                 onTap: () async {
                   ///TODO : logOut
-                  PreferencesManager().remove('username');
+                  PreferencesManager().remove(StorageKey.username);
                   PreferencesManager().remove('quote');
                   PreferencesManager().remove('tasks');
 

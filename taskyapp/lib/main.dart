@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:taskyapp/Screens/main_screen.dart';
+import 'package:taskyapp/core/constants/storage_key.dart';
+import 'package:taskyapp/features/navigation/main_screen.dart';
 import 'package:taskyapp/Screens/welcome_screen.dart';
 import 'package:taskyapp/core/services/preferences_manager.dart';
 import 'package:taskyapp/core/theme/dark_theme.dart';
@@ -12,7 +13,7 @@ void main() async {
   await PreferencesManager().init();
   ThemeController().init();
 
-  String? username = PreferencesManager().getString('username');
+  String? username = PreferencesManager().getString(StorageKey.username);
 
   runApp(MyApp(username: username));
 }

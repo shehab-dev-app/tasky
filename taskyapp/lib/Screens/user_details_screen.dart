@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:taskyapp/core/constants/storage_key.dart';
 import 'package:taskyapp/core/services/preferences_manager.dart';
 import 'package:taskyapp/core/widgets/custom_text_form_field.dart';
 
@@ -32,7 +33,7 @@ class _UserDetailsScreenState extends State<UserDetailsScreen> {
 
   void _loadUserName() async {
     final userNameValue =
-        await PreferencesManager().getString('username') ?? '';
+        await PreferencesManager().getString(StorageKey.username) ?? '';
     setState(() {
       userName = userNameValue;
     });

@@ -2,12 +2,13 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:taskyapp/Screens/add_task_screen.dart';
+import 'package:taskyapp/core/constants/storage_key.dart';
 import 'package:taskyapp/core/services/preferences_manager.dart';
 import 'package:taskyapp/core/widgets/custom_svg_picture.dart';
 import 'package:taskyapp/models/task_model.dart';
-import 'package:taskyapp/widgets/achieved_tasks_widget.dart';
-import 'package:taskyapp/widgets/high_priority_task_widget.dart';
-import 'package:taskyapp/widgets/sliver_task_list_widget.dart';
+import 'package:taskyapp/features/home/components/achieved_tasks_widget.dart';
+import 'package:taskyapp/features/home/components/high_priority_task_widget.dart';
+import 'package:taskyapp/features/home/components/sliver_task_list_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -24,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
   int totalDoneTasks = 0;
   double percentage = 0;
   String? quote;
-    String? userImagePath;
+  String? userImagePath;
 
   @override
   void initState() {
@@ -32,12 +33,12 @@ class _HomeScreenState extends State<HomeScreen> {
     _loadUserName();
     _loadTask();
     _loadQuote();
-    _loadUserImage() ;
+    _loadUserImage();
   }
 
   void _loadUserName() async {
     setState(() {
-      username = PreferencesManager().getString('username');
+      username = PreferencesManager().getString(StorageKey.username);
     });
   }
 
@@ -46,6 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
       userImagePath = PreferencesManager().getString('user_image');
     });
   }
+
   void _loadQuote() async {
     setState(() {
       quote = PreferencesManager().getString('quote');
@@ -113,13 +115,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   Row(
                     children: [
-                     CircleAvatar(
-                    backgroundImage: userImagePath == null
-                        ? AssetImage('assets/images/Thumbnail.png')
-                        : FileImage(File(userImagePath!)),
-                    backgroundColor: Colors.transparent,
-                  
-                  ),
+                      CircleAvatar(
+                        backgroundImage: userImagePath == null
+                            ? AssetImage('assets/images/Thumbnail.png')
+                            : FileImage(File(userImagePath!)),
+                        backgroundColor: Colors.transparent,
+                      ),
                       SizedBox(width: 8),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
